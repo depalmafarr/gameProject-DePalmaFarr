@@ -43,9 +43,16 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
+// create function for when you click a box
+const onBoxClick = function (boxNum) {
+  console.log('YOU CLICKED A BOX')
+  // element.innerHTML += "X"
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onBoxClick
 }

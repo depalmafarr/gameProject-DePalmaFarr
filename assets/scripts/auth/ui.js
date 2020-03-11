@@ -58,6 +58,19 @@ const onSignOutFailure = function (error) {
   $('#signOutMessage').addClass('failure')
   console.log('onSignOutFailure data is: ', error)
 }
+const onClickBoxSuccess = function (data) {
+  $('#boxClickMessage').text('Placed a letter')
+  $('#boxClickMessage').removeClass()
+  $('#boxClickMessage').addClass('success')
+  console.log('boxClickMessage data is: ', data)
+}
+
+const onClickBoxFailure = function (error) {
+  $('#boxClickMessage').text('Sign out failed')
+  $('#boxClickMessage').removeClass()
+  $('#boxClickMessage').addClass('failure')
+  console.log('boxClickMessage data is: ', error)
+}
 
 module.exports = {
   onSignUpSucess,
@@ -67,5 +80,7 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onClickBoxSuccess,
+  onClickBoxFailure
 }

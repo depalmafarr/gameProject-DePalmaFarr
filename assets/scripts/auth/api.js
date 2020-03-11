@@ -12,10 +12,9 @@ const signUp = function (data) {
   })
 }
 
-const signIn = function (data, token) {
+const signIn = function (data) {
   console.log('In api.js')
   return $.ajax({
-    Authorization: token,
     url: config.apiUrl + '/sign-in',
     method: 'POST',
     data
@@ -45,9 +44,14 @@ const signOut = function () {
   })
 }
 
+const boxClick = function () {
+  console.log('In api.js')
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  boxClick
 }
