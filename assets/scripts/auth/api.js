@@ -44,20 +44,9 @@ const signOut = function () {
   })
 }
 
-// const boxClick = function (box) {
-//   return $.ajax({
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     box
-//   })
-// }
-
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut
-  // boxClick
 }
