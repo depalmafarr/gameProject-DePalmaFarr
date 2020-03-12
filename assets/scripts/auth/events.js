@@ -43,10 +43,20 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
-// create function for when you click a box
-const onBoxClick = function (boxNum) {
+// create function for when you click a box, O is added
+const onBoxClick = function (event) {
+  console.log(event.target)
+  console.log(event.target.id)
   console.log('YOU CLICKED A BOX')
-  // element.innerHTML += "X"
+  // add an if statement that will add an X to box if it is X's turn, if O's turn, wont add if the spot is invalid
+  if (event.target !== 'X' || event.target !== 'O' /* && currentPlayer === 'X' */) {
+    $(event.target).text('X')
+  } else if (event.target !== 'X' || event.target !== 'O' /* && currentPlayer === 'X' */) {
+    $(event.target).text('O')
+  }
+  // api.boxClick()
+  //   .then(ui.onClickBoxSuccess)
+  //   .catch(ui.onClickBoxFailure)
 }
 
 module.exports = {
