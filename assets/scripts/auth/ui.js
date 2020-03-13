@@ -58,6 +58,39 @@ const onSignOutFailure = function (error) {
   $('#signOutMessage').addClass('failure')
   console.log('onSignOutFailure data is: ', error)
 }
+
+const onNewGameSuccess = function (data) {
+  $('#newGameMessage').text('created a new game')
+  $('#newGameMessage').removeClass()
+  $('#newGameMessage').addClass('success')
+  console.log('onSignOutSuccess data is: ', data)
+  store.game = data
+  for (let i = 0; i < 9; i++) {
+    $('#' + i).text('')
+  }
+}
+
+const onNewGameFailure = function (error) {
+  $('#newGameMessage').text('Game cant be created')
+  $('#newGameMessage').removeClass()
+  $('#newGameMessage').addClass('failure')
+  console.log('onSignOutFailure data is: ', error)
+}
+
+const onUpdateGameSuccess = function (data) {
+  $('#newGameMessage').text('created a new game update')
+  $('#newGameMessage').removeClass()
+  $('#newGameMessage').addClass('success')
+  console.log('onSignOutSuccess data is: ', data)
+}
+
+const onUpdateGameFailure = function (error) {
+  $('#newGameMessage').text('Game cant be updated')
+  $('#newGameMessage').removeClass()
+  $('#newGameMessage').addClass('failure')
+  console.log('onSignOutFailure data is: ', error)
+}
+
 module.exports = {
   onSignUpSucess,
   onSignUpFailure,
@@ -66,5 +99,9 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onNewGameSuccess,
+  onNewGameFailure,
+  onUpdateGameSuccess,
+  onUpdateGameFailure
 }

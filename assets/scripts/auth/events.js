@@ -49,6 +49,27 @@ const onSignOut = function (event) {
     .catch(ui.onSignOutFailure)
 }
 
+// new game function
+const onNewGame = function (event) {
+  event.preventDefault()
+  console.log('creating new game')
+  // const data = getFormFields(event.target)
+  api.newGame()
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onNewGameFailure)
+  for (let i = 0; i < 9; i++) {
+    board[i] = ''
+  }
+}
+
+const onUpdateBoard = function (index, value) {
+  event.preventDefault()
+  console.log('updating board')
+  api.updateBoard()
+    .then(ui.onUpdateBoardSuccess)
+    .catch(ui.onUpdateBoardFailure)
+}
+
 // create function for when you click a box, O is added
 const onBoxClick = function () {
   // console.log(board.every(isGameOver))
@@ -69,6 +90,7 @@ const onBoxClick = function () {
         $('#gameEndMessage').text('It is a draw!')
         return
       }
+      console.log(board)
       currentPlayer = 'O'
       $('#currentTurn').text('Turn: ' + currentPlayer)
     } else if ($(event.target).text() === '' && currentPlayer === 'O') {
@@ -81,6 +103,7 @@ const onBoxClick = function () {
         $('#gameEndMessage').text('It is a draw!')
         return
       }
+      console.log(board)
       currentPlayer = 'X'
       $('#currentTurn').text('Turn: ' + currentPlayer)
     } else {
@@ -91,7 +114,7 @@ const onBoxClick = function () {
     }
   } else {
     // console.log('Start a new game')
-    $('#boxClickMessage').text('Start a new game!')
+    $('#boxClickMessage').text('Start a new game to keep playing!')
   }
 }
 
@@ -163,5 +186,7 @@ module.exports = {
   board,
   currentPlayer,
   checkForWin,
-  isGameOver
+  isGameOver,
+  onNewGame,
+  onUpdateBoard
 }

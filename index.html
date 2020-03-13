@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Tic-Tac-Toe</h1>
+      <h1>Tic-Tac-Toe add a nav for buttons</h1>
 
       <p id="message"></p>
       <form id="sign-up" class="border">
@@ -44,6 +44,7 @@
           <input type="submit" value="Change Password">
         </fieldset>
       </form>
+
       <p id="signOutMessage"></p>
       <form id="sign-out" class="border">
         <fieldset>
@@ -52,9 +53,18 @@
         </fieldset>
       </form>
 
+      <p id="newGameMessage"></p>
+      <form id="new-game" class="border">
+        <fieldset>
+          <legend>Start game</legend>
+          <input type="submit" value="Start Game">
+        </fieldset>
+      </form>
+
       <p id="currentTurn"></p>
       <p id="boxClickMessage"></p>
       <p id="gameEndMessage"></p>
+
       <div class="container">
         <div class="row">
           <div id="0" class="col-4 box"></div>

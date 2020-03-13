@@ -44,9 +44,42 @@ const signOut = function () {
   })
 }
 
+const newGame = function () {
+  console.log('In api.js')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateBoard = function (index, value, boolean) {
+  console.log('In api.js with updateBoard')
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': 'value'
+        },
+        'over': boolean
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  newGame,
+  updateBoard
 }
