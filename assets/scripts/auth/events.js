@@ -50,16 +50,24 @@ const onBoxClick = function () {
   // console.log('YOU CLICKED A BOX')
   // add an if statement that will add an X to box if it is X's turn, if O's turn, wont add if the spot is invalid
   // If where you clicked is blank
-  if ($(event.target).text() === '' && currentPlayer === 'X') {
-    $(event.target).text('X')
-    board[event.target.id] = 'X'
-    currentPlayer = 'O'
-  } else if ($(event.target).text() === '' && currentPlayer === 'O') {
-    $(event.target).text('O')
-    board[event.target.id] = 'O'
-    currentPlayer = 'X'
+  // end game when there is a winner
+  if (checkForWin() !== true) {
+    if ($(event.target).text() === '' && currentPlayer === 'X') {
+      $(event.target).text('X')
+      board[event.target.id] = 'X'
+      checkForWin()
+      currentPlayer = 'O'
+    } else if ($(event.target).text() === '' && currentPlayer === 'O') {
+      $(event.target).text('O')
+      board[event.target.id] = 'O'
+      checkForWin()
+      currentPlayer = 'X'
+    } else {
+      $('#boxClickMessage').text('Invalid move')
+    }
   } else {
-    $('#boxClickMessage').text('Invalid move')
+    console.log('Start a new game')
+    $('#boxClickMessage').text('Start a new game!')
   }
 }
 
@@ -67,28 +75,36 @@ const onBoxClick = function () {
 // Horiz (0,1,2) (3,4,5) (6,7,8) Vert (0,3,6) (1,4,7) (2,5,8) Diag (0,4,8) (2,4,6)
 const checkForWin = function () {
   if (board[0] !== '' && board[0] === board[1] && board[0] === board[2]) {
-    console.log('Win 1')
+    // console.log('Win 1')
+    $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
   } else if (board[3] !== '' && board[3] === board[4] && board[3] === board[5]) {
-    console.log('Win 2')
+    // console.log('Win 2')
+    $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
   } else if (board[6] !== '' && board[6] === board[7] && board[6] === board[8]) {
-    console.log('Win 3')
+    // console.log('Win 3')
+    $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
   } else if (board[0] !== '' && board[0] === board[3] && board[0] === board[6]) {
-    console.log('Win 4')
+    // console.log('Win 4')
+    $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
   } else if (board[1] !== '' && board[1] === board[7] && board[1] === board[8]) {
-    console.log('Win 5')
+    // console.log('Win 5')
+    $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
   } else if (board[2] !== '' && board[2] === board[5] && board[2] === board[8]) {
-    console.log('Win 6')
+    // console.log('Win 6')
+    $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
   } else if (board[0] !== '' && board[0] === board[4] && board[0] === board[8]) {
-    console.log('Win 7')
+    // console.log('Win 7')
+    $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
   } else if (board[2] !== '' && board[2] === board[4] && board[2] === board[6]) {
-    console.log('Win 8')
+    // console.log('Win 8')
+    $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
   }
 }
