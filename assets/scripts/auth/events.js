@@ -70,6 +70,7 @@ const onBoxClick = function () {
         return
       }
       currentPlayer = 'O'
+      $('#currentTurn').text('Turn: ' + currentPlayer)
     } else if ($(event.target).text() === '' && currentPlayer === 'O') {
       $(event.target).text('O')
       board[event.target.id] = 'O'
@@ -81,6 +82,7 @@ const onBoxClick = function () {
         return
       }
       currentPlayer = 'X'
+      $('#currentTurn').text('Turn: ' + currentPlayer)
     } else {
       if (board.every(isGameOver) === false) {
         // console.log('DRAW')
@@ -88,7 +90,7 @@ const onBoxClick = function () {
       }
     }
   } else {
-    console.log('Start a new game')
+    // console.log('Start a new game')
     $('#boxClickMessage').text('Start a new game!')
   }
 }
