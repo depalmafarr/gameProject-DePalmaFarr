@@ -36,7 +36,7 @@
       </form>
 
       <p id="passwordChangeMessage"></p>
-      <form id="change-password" class="border">
+      <form id="change-password" class="border hidden">
         <fieldset>
           <legend>Change password</legend>
           <input type="text" name="passwords[old]" placeholder="Old password">
@@ -46,7 +46,7 @@
       </form>
 
       <p id="signOutMessage"></p>
-      <form id="sign-out" class="border">
+      <form id="sign-out" class="border hidden">
         <fieldset>
           <legend>Sign out</legend>
           <input type="submit" value="Sign out">
@@ -54,10 +54,10 @@
       </form>
 
       <p id="newGameMessage"></p>
-      <form id="new-game" class="border">
+      <form id="new-game" class="border hidden">
         <fieldset>
           <legend>Start game</legend>
-          <input type="submit" value="Start Game">
+          <input type="submit" value="New Game">
         </fieldset>
       </form>
 
@@ -65,7 +65,7 @@
       <p id="boxClickMessage"></p>
       <p id="gameEndMessage"></p>
 
-      <div class="container">
+      <div class="container hidden">
         <div class="row">
           <div id="0" class="col-4 box"></div>
           <div id="1" class="col-4 box"></div>
