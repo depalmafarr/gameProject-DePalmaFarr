@@ -3,12 +3,12 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
-let board = [
+let board =
+[ '', '', '',
   '', '', '',
-  '', '', '',
-  '', '', ''
-]
+  '', '', '' ]
 
 // create onSignUp function
 const onSignUp = function (event) {
@@ -51,6 +51,7 @@ const onSignOut = function (event) {
 
 // new game function
 const onNewGame = function (event) {
+  // const board = store.game.game.cells
   event.preventDefault()
   console.log('creating new game')
   // const data = getFormFields(event.target)
@@ -72,6 +73,7 @@ const onUpdateBoard = function (index, value) {
 
 // create function for when you click a box, O is added
 const onBoxClick = function () {
+  if (store.game.over === true) return
   // console.log(board.every(isGameOver))
   // console.log(event.target)
   // console.log(event.target.id)
@@ -80,47 +82,59 @@ const onBoxClick = function () {
   // If where you clicked is blank
   // end game when there is a winner
   if (checkForWin() !== true) {
+    // const board = store.game.game.cells
     if ($(event.target).text() === '' && currentPlayer === 'X') {
       $(event.target).text('X')
-      board[event.target.id] = 'X'
+      store.game.game.cells[event.target.id] = 'X'
+      store.gameState.position = event.target.id
+      store.gameState.value = currentPlayer
       checkForWin()
+      store.gameState.over = isGameOver
       // check to see if the game is over and nobody has won
-      if (board.every(isGameOver) === true) {
+      if (store.game.game.cells.every(isGameOver) === true) {
         // console.log('DRAW')
         $('#gameEndMessage').text('It is a draw!')
         return
       }
-      console.log(board)
+      // console.log(store.game)
       currentPlayer = 'O'
       $('#currentTurn').text('Turn: ' + currentPlayer)
     } else if ($(event.target).text() === '' && currentPlayer === 'O') {
       $(event.target).text('O')
-      board[event.target.id] = 'O'
+      store.game.game.cells[event.target.id] = 'O'
+      store.gameState.position = event.target.id
+      store.gameState.value = currentPlayer
       checkForWin()
+      store.gameState.over = isGameOver
       // check to see if the game is over and nobody has won
-      if (board.every(isGameOver) === true) {
+      if (store.game.game.cells.every(isGameOver) === true) {
         // console.log('DRAW')
         $('#gameEndMessage').text('It is a draw!')
         return
+      } else if (checkForWin() === true) {
+        checkForWin()
+        return
       }
-      console.log(board)
+      // console.log(store.game)
       currentPlayer = 'X'
       $('#currentTurn').text('Turn: ' + currentPlayer)
     } else {
-      if (board.every(isGameOver) === false) {
+      if (store.game.game.cells.every(isGameOver) === false) {
         // console.log('DRAW')
         $('#boxClickMessage').text('Invalid move')
       }
     }
   } else {
     // console.log('Start a new game')
-    $('#boxClickMessage').text('Start a new game to keep playing!')
+    $('#gameEndMessage').text('Start a new game to keep playing!')
+    // $('#currentTurn').addClass('hidden')
   }
 }
 
 // create function that goes through the array of board and checks if any win possiblilties are there like 0, 1, 2 = X
 // Horiz (0,1,2) (3,4,5) (6,7,8) Vert (0,3,6) (1,4,7) (2,5,8) Diag (0,4,8) (2,4,6)
 const checkForWin = function () {
+  const board = store.game.game.cells
   if (board[0] !== '' && board[0] === board[1] && board[0] === board[2]) {
     // console.log('Win 1')
     $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
@@ -171,6 +185,13 @@ for (let i = 0; i < winConditions.length; i++) {
 // use . every to call this function in the on box click function.
 
 const isGameOver = (value) => value !== ''
+// const isGameOver = function (data) {
+//   if (checkForWin === true) {
+//     return true
+//   } else if (data !== '') {
+//     return true
+//   }
+// }
 // loop thorugh board and check if everything is not blank
 // console.log(board.every(isGameOver))
 

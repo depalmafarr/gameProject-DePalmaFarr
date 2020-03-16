@@ -45,7 +45,7 @@ const signOut = function () {
 }
 
 const newGame = function () {
-  console.log('In api.js')
+  // console.log('In api.js')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -58,7 +58,7 @@ const newGame = function () {
 const updateBoard = function (index, value, boolean) {
   console.log('In api.js with updateBoard')
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.game.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -66,10 +66,10 @@ const updateBoard = function (index, value, boolean) {
     data: {
       'game': {
         'cell': {
-          'index': index,
-          'value': 'value'
+          'index': store.gameState.position,
+          'value': store.gameState.value
         },
-        'over': boolean
+        'over': store.gameState.over
       }
     }
   })
