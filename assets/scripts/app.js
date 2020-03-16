@@ -15,4 +15,5 @@ $(() => {
   $('#new-game').on('submit', authEvents.onNewGame)
   $('.box').on('click', authEvents.onUpdateBoard)
   $('.box').on('click', authEvents.onBoxClick)
+  $('#total-games').on('submit', authEvents.onTotalGames)
 })

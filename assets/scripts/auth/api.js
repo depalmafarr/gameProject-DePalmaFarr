@@ -75,11 +75,23 @@ const updateBoard = function (index, value, boolean) {
   })
 }
 
+const totalGames = function () {
+  console.log('In total games api.js')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   newGame,
-  updateBoard
+  updateBoard,
+  totalGames
 }

@@ -198,6 +198,16 @@ const isGameOver = (value) => value !== ''
 // create way to track currentPlayer, and change on click
 let currentPlayer = 'X'
 
+const onTotalGames = function (event) {
+  event.preventDefault()
+  console.log('total games check')
+  api.totalGames()
+    .then(ui.onTotalGamesSuccess)
+}
+
+// create clear board function in here, then run it in UI
+// add a footer in html for linkedin link or something
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -209,5 +219,6 @@ module.exports = {
   checkForWin,
   isGameOver,
   onNewGame,
-  onUpdateBoard
+  onUpdateBoard,
+  onTotalGames
 }
