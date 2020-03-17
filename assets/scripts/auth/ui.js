@@ -24,7 +24,7 @@ const onSignInSucess = function (data) {
   $('#change-password').removeClass('hidden')
   $('#sign-out').removeClass('hidden')
   $('#new-game').removeClass('hidden')
-  $('#totalGames').removeClass('hidden')
+  $('#total-games').removeClass('hidden')
   console.log('onSignInSucess data is: ', data)
   store.user = data.user
 }
@@ -60,6 +60,7 @@ const onSignOutSuccess = function (data) {
   $('#new-game').addClass('hidden')
   $('.container').addClass('hidden')
   $('#newGameMessage').text('')
+  $('#currentTurn').text('')
   console.log('onSignOutSuccess data is: ', data)
 }
 
@@ -75,6 +76,7 @@ const onNewGameSuccess = function (data) {
   $('#newGameMessage').removeClass()
   $('.container').removeClass('hidden')
   $('#gameEndMessage').text('')
+  $('#currentTurn').text('Turn: X')
   console.log('onNewGameSuccess data is: ', data)
   store.game = data
   for (let i = 0; i < 9; i++) {

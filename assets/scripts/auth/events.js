@@ -75,6 +75,8 @@ const onUpdateBoard = function (index, value) {
 // create function for when you click a box, O is added
 const onBoxClick = function () {
   if (store.game.over === true) return
+  $('#boxClickMessage').text('')
+  $('#newGameMessage').text('')
   // console.log(board.every(isGameOver))
   // console.log(event.target)
   // console.log(event.target.id)
@@ -94,8 +96,12 @@ const onBoxClick = function () {
       // check to see if the game is over and nobody has won
       if (store.game.game.cells.every(isGameOver) === true) {
         // console.log('DRAW')
-        $('#gameEndMessage').text('It is a draw!')
-        return
+        if (checkForWin() === true) {
+          checkForWin()
+        } else {
+          $('#gameEndMessage').text('It is a draw!')
+          return
+        }
       }
       // console.log(store.game)
       currentPlayer = 'O'
@@ -110,11 +116,12 @@ const onBoxClick = function () {
       // check to see if the game is over and nobody has won
       if (store.game.game.cells.every(isGameOver) === true) {
         // console.log('DRAW')
-        $('#gameEndMessage').text('It is a draw!')
-        return
-      } else if (checkForWin() === true) {
-        checkForWin()
-        return
+        if (checkForWin() === true) {
+          checkForWin()
+        } else {
+          $('#gameEndMessage').text('It is a draw!')
+          return
+        }
       }
       // console.log(store.game)
       currentPlayer = 'X'

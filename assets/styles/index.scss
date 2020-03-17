@@ -1,18 +1,58 @@
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  background: #d4ebf2;
+}
+
+h1 {
+  text-align: center;
+}
+
+legend {
+  text-align: center;
+}
+
+fieldset {
+  padding: 5px;
+}
+
+input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
 p {
   text-align: center;
 }
 
 .box {
+  align-items: center;
   border: 5px solid blue;
+  display: flex;
   font-size: 200px;
   height: 250px;
-  margin: auto;
-  display: flex;
   justify-content: center;
-  align-items: center;
+  margin: auto;
 }
 
 .hidden {
   display: none;
+}
+
+.top {
+  border-top: 0;
+}
+
+.left {
+  border-left: 0;
+}
+
+.right {
+  border-right: 0;
+}
+
+.bottom {
+  border-bottom: 0;
 }
