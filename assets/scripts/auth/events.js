@@ -159,7 +159,7 @@ const checkForWin = function () {
     // console.log('Win 4')
     $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true
-  } else if (board[1] !== '' && board[1] === board[7] && board[1] === board[8]) {
+  } else if (board[1] !== '' && board[1] === board[4] && board[1] === board[7]) {
     // console.log('Win 5')
     $('#gameEndMessage').text('Player ' + currentPlayer + ' wins!')
     return true

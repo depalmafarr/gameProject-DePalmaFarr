@@ -5,7 +5,7 @@ const store = require('../store')
 const onSignUpSucess = function (data) {
   $('#message').text('Successful sign up!')
   $('#message').removeClass()
-  $('#sign-up').addClass('hidden')
+  $('#signInMessage').text('')
   // console.log('onSignUpSucess data is: ', data)
 }
 
@@ -25,6 +25,7 @@ const onSignInSucess = function (data) {
   $('#sign-out').removeClass('hidden')
   $('#new-game').removeClass('hidden')
   $('#total-games').removeClass('hidden')
+  $('#signUpMessage').text('')
   // console.log('onSignInSucess data is: ', data)
   store.user = data.user
 }
@@ -39,6 +40,7 @@ const onSignInFailure = function (error) {
 const onChangePasswordSuccess = function (data) {
   $('#passwordChangeMessage').text('You changed your password!')
   $('#passwordChangeMessage').removeClass()
+  $('#signInMessage').text('')
   // console.log('onChangePasswordSuccess data is: ', data)
 }
 
@@ -61,6 +63,8 @@ const onSignOutSuccess = function (data) {
   $('.container').addClass('hidden')
   $('#newGameMessage').text('')
   $('#currentTurn').text('')
+  $('#passwordChangeMessage').text('')
+
   // console.log('onSignOutSuccess data is: ', data)
 }
 
