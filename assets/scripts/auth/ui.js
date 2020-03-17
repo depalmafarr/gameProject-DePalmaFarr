@@ -77,6 +77,7 @@ const onNewGameSuccess = function (data) {
   $('.container').removeClass('hidden')
   $('#gameEndMessage').text('')
   $('#currentTurn').text('Turn: X')
+  $('#signInMessage').text('')
   // console.log('onNewGameSuccess data is: ', data)
   store.game = data
   for (let i = 0; i < 9; i++) {
