@@ -13,7 +13,7 @@ const onSignUpFailure = function (error) {
   $('#message').text('Did not sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.log('onSignUpFailure data is: ', error)
+  // console.log('onSignUpFailure data is: ', error)
 }
 
 const onSignInSucess = function (data) {
@@ -26,6 +26,7 @@ const onSignInSucess = function (data) {
   $('#new-game').removeClass('hidden')
   $('#total-games').removeClass('hidden')
   $('#signUpMessage').text('')
+  $('#message').text('')
   // console.log('onSignInSucess data is: ', data)
   store.user = data.user
 }
@@ -34,7 +35,7 @@ const onSignInFailure = function (error) {
   $('#signInMessage').text('Wrong password or email')
   $('#signInMessage').removeClass()
   $('#signInMessage').addClass('failure')
-  console.log('onSignInFailure data is: ', error)
+  // console.log('onSignInFailure data is: ', error)
 }
 
 const onChangePasswordSuccess = function (data) {
@@ -44,11 +45,11 @@ const onChangePasswordSuccess = function (data) {
   // console.log('onChangePasswordSuccess data is: ', data)
 }
 
-const onChangePasswordFailure = function (error) {
+const onChangePasswordFailure = function () {
   $('#passwordChangeMessage').text('You did not change your password')
   $('#passwordChangeMessage').removeClass()
   $('#passwordChangeMessage').addClass('failure')
-  console.log('onChangePasswordFailure data is: ', error)
+  // console.log('onChangePasswordFailure data is: ', error)
 }
 
 const onSignOutSuccess = function (data) {
@@ -68,11 +69,11 @@ const onSignOutSuccess = function (data) {
   // console.log('onSignOutSuccess data is: ', data)
 }
 
-const onSignOutFailure = function (error) {
+const onSignOutFailure = function () {
   $('#signOutMessage').text('Sign out failed')
   $('#signOutMessage').removeClass()
   $('#signOutMessage').addClass('failure')
-  console.log('onSignOutFailure data is: ', error)
+  // console.log('onSignOutFailure data is: ', error)
 }
 
 const onNewGameSuccess = function (data) {
@@ -89,11 +90,11 @@ const onNewGameSuccess = function (data) {
   }
 }
 
-const onNewGameFailure = function (error) {
+const onNewGameFailure = function () {
   $('#newGameMessage').text('Game cant be created')
   $('#newGameMessage').removeClass()
   $('#newGameMessage').addClass('failure')
-  console.log('onNewGameFailure data is: ', error)
+  // console.log('onNewGameFailure data is: ', error)
 }
 
 const onUpdateGameSuccess = function (data) {
@@ -102,11 +103,11 @@ const onUpdateGameSuccess = function (data) {
   // console.log('onUpdateGameSuccess data is: ', data)
 }
 
-const onUpdateGameFailure = function (error) {
+const onUpdateGameFailure = function () {
   $('#newGameMessage').text('Game cant be updated')
   $('#newGameMessage').removeClass()
   $('#newGameMessage').addClass('failure')
-  console.log('onUpdateFailure data is: ', error)
+  // console.log('onUpdateFailure data is: ', error)
 }
 
 const onTotalGamesSuccess = function (data) {
