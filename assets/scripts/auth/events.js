@@ -61,6 +61,7 @@ const onNewGame = function (event) {
   for (let i = 0; i < 9; i++) {
     board[i] = ''
   }
+  currentPlayer = 'X'
 }
 
 const onUpdateBoard = function (index, value) {

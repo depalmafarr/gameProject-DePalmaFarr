@@ -57,6 +57,7 @@ const newGame = function () {
 
 const updateBoard = function (index, value, boolean) {
   console.log('In api.js with updateBoard')
+  console.log(store.game)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.game.id,
     method: 'PATCH',

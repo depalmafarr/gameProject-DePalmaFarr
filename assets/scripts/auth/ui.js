@@ -60,7 +60,6 @@ const onSignOutSuccess = function (data) {
   $('#new-game').addClass('hidden')
   $('.container').addClass('hidden')
   $('#newGameMessage').text('')
-  $('#currentTurn').text('')
   console.log('onSignOutSuccess data is: ', data)
 }
 
@@ -76,7 +75,6 @@ const onNewGameSuccess = function (data) {
   $('#newGameMessage').removeClass()
   $('.container').removeClass('hidden')
   $('#gameEndMessage').text('')
-  $('#currentTurn').text('Turn: X')
   console.log('onNewGameSuccess data is: ', data)
   store.game = data
   for (let i = 0; i < 9; i++) {
@@ -95,7 +93,6 @@ const onUpdateGameSuccess = function (data) {
   $('#newGameMessage').text('created a new game update')
   $('#newGameMessage').removeClass()
   console.log('onUpdateGameSuccess data is: ', data)
-  console.log(store.game)
 }
 
 const onUpdateGameFailure = function (error) {
