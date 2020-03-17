@@ -20,6 +20,7 @@ fieldset {
 }
 
 input {
+  border: solid #86c5da 3px;
   display: block;
   margin-bottom: 10px;
   margin-left: auto;
@@ -29,10 +30,6 @@ input {
 p {
   text-align: center;
 
-}
-
-input {
-  border-color: #86c5da;
 }
 
 footer {
@@ -53,21 +50,25 @@ footer {
 //   justify-content: center;
 // }
 
+input[type=submit] {
+  border: solid #86c5da 3px;
+}
+
 .container {
+  margin-bottom: 50px;
   max-width: 400px;
   padding-bottom: 50px;
-  margin-bottom: 500px;
 }
 
 .box {
   align-items: center;
   border: 5px solid blue;
   display: flex;
+  font-family: 'Permanent Marker', cursive;
   font-size: 100px;
   height: 130px;
   justify-content: center;
   margin: auto;
-  font-family: 'Permanent Marker', cursive;
 }
 
 .hidden {
