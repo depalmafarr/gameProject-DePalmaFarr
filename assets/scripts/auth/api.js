@@ -56,8 +56,8 @@ const newGame = function () {
 }
 
 const updateBoard = function (index, value, boolean) {
-  console.log('In api.js with updateBoard')
-  console.log(store.game)
+  // console.log('In api.js with updateBoard')
+  // console.log(store.game)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.game.id,
     method: 'PATCH',
@@ -77,7 +77,7 @@ const updateBoard = function (index, value, boolean) {
 }
 
 const totalGames = function () {
-  console.log('In total games api.js')
+  // console.log('In total games api.js')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',

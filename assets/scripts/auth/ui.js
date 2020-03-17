@@ -6,7 +6,7 @@ const onSignUpSucess = function (data) {
   $('#message').text('Successful sign up!')
   $('#message').removeClass()
   $('#sign-up').addClass('hidden')
-  console.log('onSignUpSucess data is: ', data)
+  // console.log('onSignUpSucess data is: ', data)
 }
 
 const onSignUpFailure = function (error) {
@@ -25,7 +25,7 @@ const onSignInSucess = function (data) {
   $('#sign-out').removeClass('hidden')
   $('#new-game').removeClass('hidden')
   $('#total-games').removeClass('hidden')
-  console.log('onSignInSucess data is: ', data)
+  // console.log('onSignInSucess data is: ', data)
   store.user = data.user
 }
 
@@ -39,7 +39,7 @@ const onSignInFailure = function (error) {
 const onChangePasswordSuccess = function (data) {
   $('#passwordChangeMessage').text('You changed your password!')
   $('#passwordChangeMessage').removeClass()
-  console.log('onChangePasswordSuccess data is: ', data)
+  // console.log('onChangePasswordSuccess data is: ', data)
 }
 
 const onChangePasswordFailure = function (error) {
@@ -61,7 +61,7 @@ const onSignOutSuccess = function (data) {
   $('.container').addClass('hidden')
   $('#newGameMessage').text('')
   $('#currentTurn').text('')
-  console.log('onSignOutSuccess data is: ', data)
+  // console.log('onSignOutSuccess data is: ', data)
 }
 
 const onSignOutFailure = function (error) {
@@ -77,7 +77,7 @@ const onNewGameSuccess = function (data) {
   $('.container').removeClass('hidden')
   $('#gameEndMessage').text('')
   $('#currentTurn').text('Turn: X')
-  console.log('onNewGameSuccess data is: ', data)
+  // console.log('onNewGameSuccess data is: ', data)
   store.game = data
   for (let i = 0; i < 9; i++) {
     $('#' + i).text('')
@@ -94,7 +94,7 @@ const onNewGameFailure = function (error) {
 const onUpdateGameSuccess = function (data) {
   $('#newGameMessage').text('created a new game update')
   $('#newGameMessage').removeClass()
-  console.log('onUpdateGameSuccess data is: ', data)
+  // console.log('onUpdateGameSuccess data is: ', data)
 }
 
 const onUpdateGameFailure = function (error) {
@@ -106,7 +106,7 @@ const onUpdateGameFailure = function (error) {
 
 const onTotalGamesSuccess = function (data) {
   store.totalGames = data.games.length
-  console.log('onTotalGameSuccess data is: ', data)
+  // console.log('onTotalGameSuccess data is: ', data)
   $('#totalGamesMessage').text('Total games played: ' + store.totalGames)
 }
 

@@ -23,7 +23,7 @@ const onSignUp = function (event) {
 // create onSignIn function
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('Signed In')
+  // console.log('Signed In')
   const data = getFormFields(event.target)
   api.signIn(data)
     .then(ui.onSignInSucess)
@@ -33,7 +33,7 @@ const onSignIn = function (event) {
 // create onChangePassword function
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('on password change')
+  // console.log('on password change')
   const data = getFormFields(event.target)
   api.changePassword(data)
     .then(ui.onChangePasswordSuccess)
@@ -43,7 +43,7 @@ const onChangePassword = function (event) {
 // create onSignOut function
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('on sign out')
+  // console.log('on sign out')
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
@@ -53,7 +53,7 @@ const onSignOut = function (event) {
 const onNewGame = function (event) {
   // const board = store.game.game.cells
   event.preventDefault()
-  console.log('creating new game')
+  // console.log('creating new game')
   // const data = getFormFields(event.target)
   api.newGame()
     .then(ui.onNewGameSuccess)
@@ -66,7 +66,7 @@ const onNewGame = function (event) {
 
 const onUpdateBoard = function (index, value) {
   event.preventDefault()
-  console.log('updating board')
+  // console.log('updating board')
   api.updateBoard()
     .then(ui.onUpdateBoardSuccess)
     .catch(ui.onUpdateBoardFailure)
@@ -208,7 +208,7 @@ let currentPlayer = 'X'
 
 const onTotalGames = function (event) {
   event.preventDefault()
-  console.log('total games check')
+  // console.log('total games check')
   api.totalGames()
     .then(ui.onTotalGamesSuccess)
 }
