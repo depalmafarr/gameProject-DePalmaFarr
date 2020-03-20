@@ -6,13 +6,15 @@ const onSignUpSucess = function (data) {
   $('#message').text('Successful sign up!')
   $('#message').removeClass()
   $('#signInMessage').text('')
+  $('#sign-up').trigger('reset')
   // console.log('onSignUpSucess data is: ', data)
 }
 
-const onSignUpFailure = function (error) {
+const onSignUpFailure = function () {
   $('#message').text('Did not sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('#sign-up').trigger('reset')
   // console.log('onSignUpFailure data is: ', error)
 }
 
@@ -25,13 +27,16 @@ const onSignInSucess = function (data) {
   $('#sign-out').removeClass('hidden')
   $('#new-game').removeClass('hidden')
   $('#total-games').removeClass('hidden')
+  $('#totalGamesMessage').text('')
   $('#signUpMessage').text('')
   $('#message').text('')
+  $('#sign-in').trigger('reset')
   // console.log('onSignInSucess data is: ', data)
   store.user = data.user
 }
 
-const onSignInFailure = function (error) {
+const onSignInFailure = function () {
+  $('#sign-in').trigger('reset')
   $('#signInMessage').text('Wrong password or email')
   $('#signInMessage').removeClass()
   $('#signInMessage').addClass('failure')
@@ -39,6 +44,7 @@ const onSignInFailure = function (error) {
 }
 
 const onChangePasswordSuccess = function (data) {
+  $('#change-password').trigger('reset')
   $('#passwordChangeMessage').text('You changed your password!')
   $('#passwordChangeMessage').removeClass()
   $('#signInMessage').text('')
@@ -46,6 +52,7 @@ const onChangePasswordSuccess = function (data) {
 }
 
 const onChangePasswordFailure = function () {
+  $('#change-password').trigger('reset')
   $('#passwordChangeMessage').text('You did not change your password')
   $('#passwordChangeMessage').removeClass()
   $('#passwordChangeMessage').addClass('failure')
@@ -53,6 +60,7 @@ const onChangePasswordFailure = function () {
 }
 
 const onSignOutSuccess = function (data) {
+  $('#sign-out').trigger('reset')
   $('#signInMessage').text('You signed out')
   $('#signInMessage').removeClass()
   $('#sign-in').removeClass('hidden')
@@ -65,11 +73,12 @@ const onSignOutSuccess = function (data) {
   $('#newGameMessage').text('')
   $('#currentTurn').text('')
   $('#passwordChangeMessage').text('')
-
+  $('#gameEndMessage').text('')
   // console.log('onSignOutSuccess data is: ', data)
 }
 
 const onSignOutFailure = function () {
+  $('#sign-out').trigger('reset')
   $('#signOutMessage').text('Sign out failed')
   $('#signOutMessage').removeClass()
   $('#signOutMessage').addClass('failure')
@@ -77,6 +86,7 @@ const onSignOutFailure = function () {
 }
 
 const onNewGameSuccess = function (data) {
+  $('#new-game').trigger('reset')
   $('#newGameMessage').text('created a new game')
   $('#newGameMessage').removeClass()
   $('.container').removeClass('hidden')
@@ -91,6 +101,7 @@ const onNewGameSuccess = function (data) {
 }
 
 const onNewGameFailure = function () {
+  $('#new-game').trigger('reset')
   $('#newGameMessage').text('Game cant be created')
   $('#newGameMessage').removeClass()
   $('#newGameMessage').addClass('failure')
@@ -113,6 +124,7 @@ const onUpdateGameFailure = function () {
 const onTotalGamesSuccess = function (data) {
   store.totalGames = data.games.length
   // console.log('onTotalGameSuccess data is: ', data)
+  $('#total-games').removeClass('hidden')
   $('#totalGamesMessage').text('Total games played: ' + store.totalGames)
 }
 

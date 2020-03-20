@@ -13,7 +13,7 @@ let board =
 // create onSignUp function
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('Signing up')
+  // console.log('Signing up')
   const data = getFormFields(event.target)
   api.signUp(data)
     .then(ui.onSignUpSucess)
