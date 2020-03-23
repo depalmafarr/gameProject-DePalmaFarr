@@ -15,6 +15,7 @@ const onSignUpFailure = function () {
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('#sign-up').trigger('reset')
+  $('#signInMessage').text('')
   // console.log('onSignUpFailure data is: ', error)
 }
 
@@ -40,6 +41,7 @@ const onSignInFailure = function () {
   $('#signInMessage').text('Wrong password or email')
   $('#signInMessage').removeClass()
   $('#signInMessage').addClass('failure')
+  $('#message').text('')
   // console.log('onSignInFailure data is: ', error)
 }
 
@@ -56,6 +58,7 @@ const onChangePasswordFailure = function () {
   $('#passwordChangeMessage').text('You did not change your password')
   $('#passwordChangeMessage').removeClass()
   $('#passwordChangeMessage').addClass('failure')
+  $('#signInMessage').text('')
   // console.log('onChangePasswordFailure data is: ', error)
 }
 
@@ -82,6 +85,8 @@ const onSignOutFailure = function () {
   $('#signOutMessage').text('Sign out failed')
   $('#signOutMessage').removeClass()
   $('#signOutMessage').addClass('failure')
+  $('#signInMessage').text('')
+  $('#passwordChangeMessage').text('')
   // console.log('onSignOutFailure data is: ', error)
 }
 
@@ -93,6 +98,7 @@ const onNewGameSuccess = function (data) {
   $('#gameEndMessage').text('')
   $('#currentTurn').text('Turn: X')
   $('#signInMessage').text('')
+  $('#passwordChangeMessage').text('')
   // console.log('onNewGameSuccess data is: ', data)
   store.game = data
   for (let i = 0; i < 9; i++) {
@@ -105,6 +111,8 @@ const onNewGameFailure = function () {
   $('#newGameMessage').text('Game cant be created')
   $('#newGameMessage').removeClass()
   $('#newGameMessage').addClass('failure')
+  $('#signInMessage').text('')
+  $('#passwordChangeMessage').text('')
   // console.log('onNewGameFailure data is: ', error)
 }
 
@@ -126,6 +134,8 @@ const onTotalGamesSuccess = function (data) {
   // console.log('onTotalGameSuccess data is: ', data)
   $('#total-games').removeClass('hidden')
   $('#totalGamesMessage').text('Total games played: ' + store.totalGames)
+  $('#signInMessage').text('')
+  $('#passwordChangeMessage').text('')
 }
 
 module.exports = {
