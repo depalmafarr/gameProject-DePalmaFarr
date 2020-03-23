@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Righteous&display=swap" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <h1>Brandon's Tic-Tac-Toe</h1>
+    <div class="wrap">
+      <p id="message"></p>
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Sign up to play</legend>
+          <input type="text" name="credentials[email]" placeholder="example@email.com">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <p id="signInMessage"></p>
+      <form id="sign-in" class="border">
+        <fieldset>
+          <legend>Sign in</legend>
+          <input type="text" name="credentials[email]" placeholder="example@email.com">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign in">
+        </fieldset>
+      </form>
+
+      <p id="passwordChangeMessage"></p>
+      <form id="change-password" class="border hidden">
+        <fieldset>
+          <legend>Change password</legend>
+          <input type="text" name="passwords[old]" placeholder="Old password">
+          <input type="password" name="passwords[new]" placeholder="New password">
+          <input type="submit" value="Change Password">
+        </fieldset>
+      </form>
+
+      <p id="signOutMessage"></p>
+      <form id="sign-out" class="border hidden">
+        <fieldset>
+          <legend>Sign out</legend>
+          <input type="submit" value="Sign out">
+        </fieldset>
+      </form>
+
+      <form id="total-games" class="hidden">
+        <fieldset>
+          <input type="submit" value="Games Played">
+          <p id="totalGamesMessage"></p>
+        </fieldset>
+      </form>
+    </div>
+      <p id="newGameMessage"></p>
+      <form id="new-game" class="border hidden">
+        <fieldset>
+          <input type="submit" value="New Game">
+        </fieldset>
+      </form>
+
+      <p id="currentTurn"></p>
+      <p id="boxClickMessage"></p>
+      <p id="gameEndMessage"></p>
+
+      <div class="container hidden">
+        <div class="row">
+          <div id="0" class="col-4 box top left"></div>
+          <div id="1" class="col-4 box top"></div>
+          <div id="2" class="col-4 box top right"></div>
+        </div>
+        <div class="row">
+          <div id="3" class="col-4 box left"></div>
+          <div id="4" class="col-4 box"></div>
+          <div id="5" class="col-4 box right"></div>
+        </div>
+        <div class="row">
+          <div id="6" class="col-4 box bottom left"></div>
+          <div id="7" class="col-4 box bottom"></div>
+          <div id="8" class="col-4 box bottom right"></div>
+        </div>
+      </div>
+      <footer>
+        Game created by <a href="https://www.linkedin.com/in/brandon-depalmafarr/" target="_blank">Brandon DePalmaFarr</a>
+      </footer>
+    </body>
+</html>
