@@ -1,4 +1,4 @@
-# Project Title
+# Tic-Tac-Toe game project
 
 Playable Tic Tac Toe game created as first solo project at General Assembly after a few weeks of studies.
 
