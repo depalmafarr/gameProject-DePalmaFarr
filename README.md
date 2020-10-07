@@ -8,7 +8,7 @@ For can be made and grunt served onto your server from the link to the project h
 
 ### Future fixes/issues
 
-Game is not able to play online. Some of the api connections are not working as expected, will fix at a future date.
+No online functionality. Some of the api connections are not working as expected, will fix at a future date.
 
 Styling will change overtime.
 
