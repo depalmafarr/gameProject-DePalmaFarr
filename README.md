@@ -1,6 +1,6 @@
 # Tic-Tac-Toe game project
 
-Playable Tic Tac Toe game created as first solo project at General Assembly after a few weeks of studies.
+Playable Tic Tac Toe game created as first solo project at General Assembly. Created within weeks of learning to code.
 
 ## Getting Started
 
